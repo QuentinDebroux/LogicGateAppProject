@@ -9,9 +9,8 @@
 
     <ImageView
         android:id="@+id/gateSprite"
-        android:layout_width="233dp"
-        android:layout_height="108dp"
-        android:rotation="270"
+        android:layout_width="230dp"
+        android:layout_height="231dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

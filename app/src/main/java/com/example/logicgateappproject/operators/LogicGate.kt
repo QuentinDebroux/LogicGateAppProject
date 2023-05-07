@@ -1,6 +1,7 @@
 package com.example.logicgateappproject.operators
 
 import android.content.Context
+import android.graphics.RectF
 
 abstract class LogicGate(inPosX: Float, inPosY: Float, context: Context): Operator(inPosX, inPosY, context) {
 
@@ -8,9 +9,14 @@ abstract class LogicGate(inPosX: Float, inPosY: Float, context: Context): Operat
     lateinit var outputs: ArrayList<Operator>
 
     override fun onCreate() {
-        //paint.color = Color.BLUE                             /*Remplacer par une image*/
+        size*=2
         inputs = ArrayList<Operator>()
         outputs = ArrayList<Operator>()
+    }
+
+    override fun updateSize(sz: Float) {
+        super.updateSize(sz)
+        size*=2
     }
 
     open fun connectIn(input: Any) {

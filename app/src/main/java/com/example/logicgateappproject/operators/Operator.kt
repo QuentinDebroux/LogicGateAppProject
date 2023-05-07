@@ -41,7 +41,11 @@ abstract class Operator constructor(var posX: Float, var posY: Float, val contex
     fun updatePos(nPosX: Float, nPosY: Float) {
         posX = nPosX
         posY = nPosY
-        hitbox = RectF(posX, posY, posX + size, posY - size)
+        hitbox = RectF(posX-size/2, posY-size/2, posX+size/2, posY+size/2)
+    }
+
+    open fun updateSize(sz: Float) {
+        size = sz
     }
 
     abstract fun compute()
