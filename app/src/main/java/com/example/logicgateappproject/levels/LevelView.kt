@@ -37,15 +37,17 @@ class LevelView @JvmOverloads constructor (context: Context, attributes: Attribu
             for (obj in operators) {
                 var out = false
                 //println(event.x<obj.hitbox.right && event.x>obj.hitbox.left)
-                println(event.y<obj.hitbox.top && event.y>obj.hitbox.bottom)
+                //println(event.y<obj.hitbox.top && event.y>obj.hitbox.bottom)
 
-                if (obj is Switch && event.x<obj.hitbox.right && event.x>obj.hitbox.left
-                    && event.y<obj.hitbox.top && event.y>obj.hitbox.bottom)  {
-                    println("touch")
+                if (obj is Switch) {
+                    if (event.x<obj.hitbox.right && event.x>obj.hitbox.left
+                        && event.y>obj.hitbox.top && event.y<obj.hitbox.bottom) {
+                        println("touch")
 
-                    obj.switchState()
+                        obj.switchState()
 
-                    out = true
+                        out = true
+                    }
                 }
                 if (out) {break}
             }
@@ -71,8 +73,8 @@ class LevelView @JvmOverloads constructor (context: Context, attributes: Attribu
         super.onSizeChanged(w, h, oldw, oldh)
 
         for (obj in operators) {
-            obj.updatePos(obj.posX*w/screenWidth, obj.posY*h/screenHeight)
             obj.updateSize(w/ opFract)
+            obj.updatePos(obj.posX*w/screenWidth, obj.posY*h/screenHeight)
         }
 
         screenWidth = w.toFloat()
