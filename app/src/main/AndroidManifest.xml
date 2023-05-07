@@ -119,6 +119,36 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".tutorials.ExactLightExample"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.View" />
+
+                <category android:name="android.intent.category.Default" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".tutorials.EvenLightExample"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.View" />
+
+                <category android:name="android.intent.category.Default" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".tutorials.OddLightExample"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.View" />
+
+                <category android:name="android.intent.category.Default" />
+            </intent-filter>
+        </activity>
+
 
         <!-- Levels activity -->
         <activity

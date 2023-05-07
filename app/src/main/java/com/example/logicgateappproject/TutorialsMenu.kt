@@ -70,6 +70,27 @@ class TutorialsMenu: AppCompatActivity() {
                         startActivity(intent)
                     }
                 }
+                8 -> {
+                    button.setText(R.string.ExactLight)
+                    button.setOnClickListener() {
+                        val intent = Intent(this, ExactLightExample::class.java)
+                        startActivity(intent)
+                    }
+                }
+                9 -> {
+                    button.setText(R.string.EvenLight)
+                    button.setOnClickListener() {
+                        val intent = Intent(this, EvenLightExample::class.java)
+                        startActivity(intent)
+                    }
+                }
+                10 -> {
+                    button.setText(R.string.OddLight)
+                    button.setOnClickListener() {
+                        val intent = Intent(this, OddLightExample::class.java)
+                        startActivity(intent)
+                    }
+                }
                 else -> { button.text = "Tutorial $i" }
             }
             buttonContainer.addView(button)

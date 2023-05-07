@@ -19,6 +19,9 @@
 
     <!-- Lights -->
     <string name="MoreThanLight">More Than Light</string>
+    <string name="ExactLight">Normal Light</string>
+    <string name="EvenLight">Even Light</string>
+    <string name="OddLight">Odd Light</string>
 
 
     <!-- Logic Gate example -->
@@ -27,13 +30,15 @@
     <string name="light">Light</string>
 
     <string name="description">Description</string>
-    <string name="andDesc">AND logic gates switch on when \n both inputs are on.</string>
-    <string name="orDesc">OR logic gates switch on when \n at least one input is on.</string>
-    <string name="xorDesc">XOR logic gates switch on when \n an odd number of inputs is on.</string>
-    <string name="notDesc">NOT logic gates have a single input \n and invert its signal.</string>
-    <string name="timerswitchDesc">A Timer Switch switches on for a set \n amount of time then switches off.</string>
-    <string name="clockswitchDesc">A Clock Switch switches on and off \n indefinitely, waiting a short amount of time \n in between .</string>
-    <string name="morethanlightDesc">A "More Than Light" turns on if more \n than a set amount of inputs are turned on</string>
-
+    <string name="andDesc">\"AND\" logic gates switch on when\n both inputs are on.</string>
+    <string name="orDesc">\"OR\" logic gates switch on when\n at least one input is on.</string>
+    <string name="xorDesc">\"XOR\" logic gates switch on when\n an odd number of inputs is on.</string>
+    <string name="notDesc">\"NOT\" logic gates have a single input\n and invert its signal.</string>
+    <string name="timerswitchDesc">A \"Timer Switch\" switches on for a set\n amount of time then switches off.</string>
+    <string name="clockswitchDesc">A \"Clock Switch\" switches on and off\n indefinitely, waiting for a short amount of time\n in between.</string>
+    <string name="morethanlightDesc">A \"More Than Light\" turns on if more\n than a set amount of inputs are turned on.\n In this example, you need to turn\n at least 2 switches on</string>
+    <string name="exactlightDesc">A \"Normal Light\" turns on if exactly \n a set amount of inputs are turned on.\n In this example, you need to turn\n exactly 2 switches on</string>
+    <string name="evenlightDesc">An \"Even Light\" turns on if an even\n number of inputs are turned on</string>
+    <string name="oddlightDesc">An \"Odd Light\" turns on if an odd\n number of inputs are turned on</string>
 
 </resources>
