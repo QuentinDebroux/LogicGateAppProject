@@ -63,6 +63,13 @@ class TutorialsMenu: AppCompatActivity() {
                         startActivity(intent)
                     }
                 }
+                7 -> {
+                    button.setText(R.string.MoreThanLight)
+                    button.setOnClickListener() {
+                        val intent = Intent(this, MoreThanLightExample::class.java)
+                        startActivity(intent)
+                    }
+                }
                 else -> { button.text = "Tutorial $i" }
             }
             buttonContainer.addView(button)

@@ -109,6 +109,16 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".tutorials.MoreThanLightExample"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.View" />
+
+                <category android:name="android.intent.category.Default" />
+            </intent-filter>
+        </activity>
+
 
         <!-- Levels activity -->
         <activity

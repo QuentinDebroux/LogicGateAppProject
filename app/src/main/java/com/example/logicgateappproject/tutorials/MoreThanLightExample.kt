@@ -17,8 +17,8 @@ class MoreThanLightExample: InteractiveLightExample() {
         description = findViewById(R.id.description__light)
         l = findViewById(R.id.light__light)
 
-        name.setText(R.string.TimerSwitch)
-        description.setText(R.string.timerswitchDesc)
+        name.setText(R.string.MoreThanLight)
+        description.setText(R.string.morethanlightDesc)
         l.setImageResource(R.drawable.lit_off_light_bulb_morethan)
 
         light = MoreThanLight(0f, 0f, this, 1, 1)

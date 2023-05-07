@@ -20,7 +20,7 @@ class ClockSwitch(inPosX: Float, inPosY: Float, context: Context, DELAY : Long =
 
     override fun onCreate() {
         super.onCreate()
-        spriteId = R.drawable.normal_switch_off
+        spriteId = R.drawable.clock_switch_off
     }
 
     override fun switchState(){
@@ -31,16 +31,19 @@ class ClockSwitch(inPosX: Float, inPosY: Float, context: Context, DELAY : Long =
             threadclock = GlobalScope.launch {
                 while (on) {
                     state = if (state == 1) 0 else 1
+                    super.compute()
                     delay(DELAY)
                 }
             }
         }
         else {
+            println("canceled threadclock")
             on = false
             threadclock.cancel()
             state = 0
+            super.compute()
         }
 
-        super.compute()
+
     }
 }

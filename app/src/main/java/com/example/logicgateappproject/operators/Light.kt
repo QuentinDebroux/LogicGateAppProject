@@ -21,6 +21,7 @@ abstract class Light(inPosX: Float, inPosY: Float, context: Context, MAXINPUTS :
         And sends a message to add the reference of
         the current logic gate to the outputs of
         the input logic gate*/
+
         if (input !in inputs) {
             if (input is LogicGate) {
                 if (inputs.size < MAXINPUTS) {

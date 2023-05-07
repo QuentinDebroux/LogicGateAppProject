@@ -9,6 +9,7 @@ import com.example.logicgateappproject.R
 import com.example.logicgateappproject.TutorialsMenu
 import com.example.logicgateappproject.operators.ExactLight
 import com.example.logicgateappproject.operators.Switch
+import kotlinx.coroutines.*
 
 abstract class InteractiveSwitchExample: AppCompatActivity() {
 
@@ -22,20 +23,7 @@ abstract class InteractiveSwitchExample: AppCompatActivity() {
     lateinit var l: ImageView
 
     @SuppressLint("MissingInflatedId")
-    open fun onConstruct() {
-        l = findViewById(R.id.light__switch)
-
-        l.setImageResource(R.drawable.lit_off_light_bulb)
-        switchStateLight()
-
-        light.connectIn(input = switch)
-
-        s.setOnClickListener {
-            switch.switchState()
-            switchStateSprite(s, switch.state)
-            switchStateLight()
-        }
-    }
+    abstract fun onConstruct()
 
     abstract fun switchStateSprite(switch: ImageView, state: Int)
 

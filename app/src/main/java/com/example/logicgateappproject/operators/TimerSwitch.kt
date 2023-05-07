@@ -3,10 +3,18 @@ package com.example.logicgateappproject.operators
 import android.content.Context
 import com.example.logicgateappproject.R
 import java.util.*
+import android.os.Handler
+import android.os.Looper
 
-class TimerSwitch(inPosX: Float, inPosY: Float, context: Context, DURATION : Int = 1000): Switch(inPosX, inPosY, context) {
 
-    val DURATION : Int = DURATION
+class TimerSwitch(inPosX: Float, inPosY: Float, context: Context, DURATION : Long = 1000): Switch(inPosX, inPosY, context) {
+
+    val DURATION : Long = DURATION
+    val handler = Handler(Looper.getMainLooper())
+    //The Handler allows you to post a Runnable (a task that will be executed)
+    //to the main/UI thread.
+    //In Android, only the main thread is allowed to modify the user interface (views),
+    //otherwise you'll get the "CalledFromWrongThreadException" error.
 
     override fun onCreate() {
         super.onCreate()
@@ -20,13 +28,10 @@ class TimerSwitch(inPosX: Float, inPosY: Float, context: Context, DURATION : Int
 
         if (state == 0) {
             state = 1
-            Timer().schedule(object : TimerTask() {
-                override fun run() {
-                    state = 0
-                }
-            }, DURATION.toLong())
-        } else {
-            state = 0
+            handler.postDelayed({
+                state = 0
+                super.compute()
+            }, DURATION)
         }
 
         super.compute()

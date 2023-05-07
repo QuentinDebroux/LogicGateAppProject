@@ -9,7 +9,7 @@ class ExactLight(inPosX: Float, inPosY: Float, context: Context, max : Int = 5, 
 
     override fun onCreate() {
         super.onCreate()
-        spriteId = R.drawable.lit_off_light_bulb
+        spriteId = R.drawable.lit_off_light_bulb_exact
     }
 
     //Light is on if the number of on inputs is exactly equal to NB_NEEDED

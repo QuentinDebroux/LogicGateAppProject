@@ -14,12 +14,17 @@
     <string name="not">NOT</string>
 
     <!-- Switches -->
-    <string name="TimerSwitch">TimerSwitch</string>
-    <string name="ClockSwitch">ClockSwitch</string>
+    <string name="TimerSwitch">Timer Switch</string>
+    <string name="ClockSwitch">Clock Switch</string>
+
+    <!-- Lights -->
+    <string name="MoreThanLight">More Than Light</string>
+
 
     <!-- Logic Gate example -->
     <string name="logic_gate">Logic Gate</string>
     <string name="switch_sw">Switch</string>
+    <string name="light">Light</string>
 
     <string name="description">Description</string>
     <string name="andDesc">AND logic gates switch on when \n both inputs are on.</string>
@@ -28,6 +33,7 @@
     <string name="notDesc">NOT logic gates have a single input \n and invert its signal.</string>
     <string name="timerswitchDesc">A Timer Switch switches on for a set \n amount of time then switches off.</string>
     <string name="clockswitchDesc">A Clock Switch switches on and off \n indefinitely, waiting a short amount of time \n in between .</string>
+    <string name="morethanlightDesc">A "More Than Light" turns on if more \n than a set amount of inputs are turned on</string>
 
 
 </resources>

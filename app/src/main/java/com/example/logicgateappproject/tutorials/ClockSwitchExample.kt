@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.widget.ImageView
 import com.example.logicgateappproject.R
 import com.example.logicgateappproject.operators.ClockSwitch
+import kotlinx.coroutines.*
 
 class ClockSwitchExample: InteractiveSwitchExample() {
 
@@ -21,6 +22,42 @@ class ClockSwitchExample: InteractiveSwitchExample() {
 
         switch = ClockSwitch(0f, 0f, this, 500)
         onConstruct()
+    }
+
+    override fun onConstruct() {
+        l = findViewById(R.id.light__switch)
+
+        l.setImageResource(R.drawable.lit_off_light_bulb)
+        switchStateLight()
+
+        light.connectIn(input = switch)
+
+        var on = false
+        lateinit var switch_on_thread: Job
+
+        s.setOnClickListener {
+            if (!on) {
+                on = true
+                switch.switchState()
+                switch_on_thread = GlobalScope.launch {
+                    while (on) {
+                        withContext(Dispatchers.Main) {
+                            //println(switch.state)
+                            switchStateSprite(s, switch.state)
+                            switchStateLight()
+                        }
+                    }
+                }
+            }
+            else{
+                on = false
+                switch.switchState()
+                switch_on_thread.cancel()
+                switchStateSprite(s, switch.state)
+                switchStateLight()
+            }
+        }
+
     }
 
     override fun switchStateSprite(switch: ImageView, state: Int) {
