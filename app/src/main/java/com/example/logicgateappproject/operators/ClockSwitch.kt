@@ -17,33 +17,32 @@ class ClockSwitch(inPosX: Float, inPosY: Float, context: Context, val DELAY : Lo
     //instance of ClockSwitch. When the coroutine is created with
     //launch(), threadclock is set to the corresponding Job instance.
 
-    override fun onCreate() {
+    override fun onCreate() { //This function is called when the object is created.
         super.onCreate()
         spriteId = R.drawable.clock_switch_off
     }
 
-    override fun switchState(){
+    override fun switchState(){ //This function is called when the object is clicked.
 
         if (!on) {
-            on = true
+            on = true  //This variable is used to know if the coroutine is running or not.
             state = 1
             threadclock = GlobalScope.launch {
                 while (on) {
-                    state = if (state == 1) 0 else 1
+                    state = if (state == 1) 0 else 1    //Switch the state of the object.
                     super.compute()
                     delay(DELAY)
                 }
             }
         }
         else {
-            println("canceled threadclock")
             on = false
-            threadclock.cancel()
+            threadclock.cancel()    //Cancel the coroutine.
             state = 0
-            super.compute()
+            super.compute()         //Call the compute function of the parent class.
         }
 
-        spriteId = if (state == 0) R.drawable.clock_switch_off else R.drawable.clock_switch_on
+        spriteId = if (state == 0) R.drawable.clock_switch_off else R.drawable.clock_switch_on  //Change the sprite of the switch.
 
     }
 }
