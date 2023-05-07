@@ -12,7 +12,6 @@ abstract class Operator constructor(var posX: Float, var posY: Float, val contex
     var size: Float
     var hitbox: RectF
     var spriteId: Int = R.drawable.and
-    //val paint = Paint()
 
     var state : Int = 0
     //var state: Int by Delegates.observable(0) {
@@ -22,23 +21,20 @@ abstract class Operator constructor(var posX: Float, var posY: Float, val contex
 
     init {
         size = 0f
-        hitbox = RectF(posX-size/2, posY-size/2, posX+size/2, posY+size/2)
+        hitbox = RectF(posX-size/2, posY-size/2, posX+size/2, posY+size/2)  //The hitbox is a rectangle centered on the object.
         onCreate()
     }
 
     abstract fun onCreate()
 
     fun draw(canvas: Canvas) {
-        /*size = (view.screenWidth/ opFract)
-        hitbox = RectF(posX, posY, posX + size, posY - size)*/
-        //canvas.drawRect(posX, posY, posX + size, posY - size, paint)
 
-        val sprite = ContextCompat.getDrawable(context, spriteId)
-        sprite?.setBounds((posX-size/2).toInt(), (posY-size/2).toInt(), (posX+size/2).toInt(), (posY+size/2).toInt())
+        val sprite = ContextCompat.getDrawable(context, spriteId)    //Get the sprite of the object.
+        sprite?.setBounds((posX-size/2).toInt(), (posY-size/2).toInt(), (posX+size/2).toInt(), (posY+size/2).toInt())   //Set the position of the sprite.
         sprite?.draw(canvas)
     }
 
-    fun updatePos(nPosX: Float, nPosY: Float) {
+    fun updatePos(nPosX: Float, nPosY: Float) { //Update the position of the object when the size is changed.
         posX = nPosX
         posY = nPosY
         hitbox = RectF(posX, posY, posX + size, posY - size)

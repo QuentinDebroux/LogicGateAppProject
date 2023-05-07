@@ -4,11 +4,10 @@ import android.content.Context
 
 abstract class LogicGate(inPosX: Float, inPosY: Float, context: Context): Operator(inPosX, inPosY, context) {
 
-    lateinit var inputs: ArrayList<Operator>
-    lateinit var outputs: ArrayList<Operator>
+    lateinit var inputs: ArrayList<Operator>    //List of operators that the current logic gate is inputting from
+    lateinit var outputs: ArrayList<Operator>   //List of operators that the current logic gate is outputting to
 
     override fun onCreate() {
-        //paint.color = Color.BLUE                             /*Remplacer par une image*/
         inputs = ArrayList<Operator>()
         outputs = ArrayList<Operator>()
     }

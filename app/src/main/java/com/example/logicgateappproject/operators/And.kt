@@ -10,6 +10,8 @@ class And(inPosX: Float, inPosY: Float, context: Context): LogicGate(inPosX, inP
         spriteId = R.drawable.and
     }
 
+    //And is on if all inputs are on
+
     override fun compute() {
         val size = inputs.size
 
