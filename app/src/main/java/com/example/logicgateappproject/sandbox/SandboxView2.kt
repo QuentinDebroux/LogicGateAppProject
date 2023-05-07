@@ -15,6 +15,7 @@ class SandboxView2 @JvmOverloads constructor (context: Context, attributes: Attr
     val backgroundPaint = Paint()
     val textPaint = Paint()
     var drawing = false
+    var IMV = getclass()
 
     var screenWidth = 0f
     var screenHeight = 0f
@@ -33,7 +34,7 @@ class SandboxView2 @JvmOverloads constructor (context: Context, attributes: Attr
     }
 
     @SuppressLint("DiscouragedApi")
-    fun getclass {val classList = mutableListOf<Class<*>>()
+    fun getclass(): ArrayList<ImageView> {val classList = mutableListOf<Class<*>>()
 
 // 1. Scanner le dossier contenant les classes et extraire les noms de classes
         val directory = File("../operators")
@@ -47,16 +48,18 @@ class SandboxView2 @JvmOverloads constructor (context: Context, attributes: Attr
 
 // 2. Itérer sur la liste de noms de classes et les initialiser comme des variables ImageView
         val imageViewList = mutableListOf<ImageView>()
-        for (className in classNames) {
-            val clazz = Class.forName(className)
-            val imageView = ImageView(context)
-            // Récupérer le nom de la ressource d'image correspondante
-            val resourceName = clazz.simpleName
-            // Récupérer l'ID de la ressource d'image correspondante en utilisant le nom de la ressource
-            val resourceId = context.resources.getIdentifier(resourceName, "drawable", context.packageName)
-            // Définir l'image à partir de la ressource d'image correspondante
-            imageView.setImageResource(resourceId)
-            imageViewList.add(imageView)
+        if (classNames != null) {
+            for (className in classNames) {
+                val clazz = Class.forName(className)
+                val imageView = ImageView(context)
+                // Récupérer le nom de la ressource d'image correspondante
+                val resourceName = clazz.simpleName
+                // Récupérer l'ID de la ressource d'image correspondante en utilisant le nom de la ressource
+                val resourceId = context.resources.getIdentifier(resourceName, "drawable", context.packageName)
+                // Définir l'image à partir de la ressource d'image correspondante
+                imageView.setImageResource(resourceId)
+                imageViewList.add(imageView)
+            }
         }
 
 
@@ -64,12 +67,13 @@ class SandboxView2 @JvmOverloads constructor (context: Context, attributes: Attr
         for (imageView in imageViewList) {
             // faire quelque chose avec imageView
         }
+        return imageViewList as ArrayList<ImageView>
     }
     fun createMenu() {
         menuOperators.clear()
 
         val distance = screenWidth*((opFract-1)/(5*opFract))
-        menuOperators.add(menuAnd (0f + screenWidth/opFract/2, screenHeight - distance, context))
+        for(element in IMV) menuOperators.add(element (0f + screenWidth/opFract/2, screenHeight - distance, context))
 
 
 }
