@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">LogicGateAppProject</string>
+
+    <!-- Main menu -->
+    <string name="tutorials">Tutorials</string>
+    <string name="levels">Levels</string>
+    <string name="sandbox">Sandbox</string>
+
+    <!-- Gates -->
+    <string name="linked">linked</string>
+    <string name="and">AND</string>
+    <string name="or">OR</string>
+    <string name="xor">XOR</string>
+    <string name="not">NOT</string>
+
+    <!-- Switches -->
+    <string name="TimerSwitch">TimerSwitch</string>
+    <string name="ClockSwitch">ClockSwitch</string>
+
+    <!-- Logic Gate example -->
+    <string name="logic_gate">Logic Gate</string>
+    <string name="switch_sw">Switch</string>
+
+    <string name="description">Description</string>
+    <string name="andDesc">AND logic gates switch on when \n both inputs are on.</string>
+    <string name="orDesc">OR logic gates switch on when \n at least one input is on.</string>
+    <string name="xorDesc">XOR logic gates switch on when \n an odd number of inputs is on.</string>
+    <string name="notDesc">NOT logic gates have a single input \n and invert its signal.</string>
+    <string name="timerswitchDesc">A Timer Switch switches on for a set \n amount of time then switches off.</string>
+    <string name="clockswitchDesc">A Clock Switch switches on and off \n indefinitely, waiting a short amount of time \n in between .</string>
+
+
+</resources>

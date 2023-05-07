@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.logicgateappproject">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.LogicGateAppProject"
+        tools:targetApi="31">
+
+        <activity
+            android:name=".Menu"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Levels menu Activity -->
+        <activity
+            android:name=".LevelsMenu"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.View" />
+
+                <category android:name="android.intent.category.Default" />
+            </intent-filter>
+        </activity>
+
+
+        <!-- Tutorials menu Activity -->
+        <activity
+            android:name=".TutorialsMenu"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.View" />
+
+                <category android:name="android.intent.category.Default" />
+            </intent-filter>
+        </activity>
+
+        <!-- Tutorials Activity -->
+        <activity
+            android:name=".tutorials.AndGateExample"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.View" />
+
+                <category android:name="android.intent.category.Default" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".tutorials.OrGateExample"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.View" />
+
+                <category android:name="android.intent.category.Default" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".tutorials.XorGateExample"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.View" />
+
+                <category android:name="android.intent.category.Default" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".tutorials.NotGateExample"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.View" />
+
+                <category android:name="android.intent.category.Default" />
+            </intent-filter>
+        </activity>
+
+
+        <activity
+            android:name=".tutorials.ClockSwitchExample"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.View" />
+
+                <category android:name="android.intent.category.Default" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".tutorials.TimerSwitchExample"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.View" />
+
+                <category android:name="android.intent.category.Default" />
+            </intent-filter>
+        </activity>
+
+
+        <!-- Levels activity -->
+        <activity
+            android:name=".levels.Level1"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.View" />
+
+                <category android:name="android.intent.category.Default" />
+            </intent-filter>
+        </activity>
+
+
+        <!-- Sandbox Activity -->
+        <activity
+            android:name=".SandboxMenu"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.View" />
+
+                <category android:name="android.intent.category.Default" />
+            </intent-filter>
+        </activity>
+
+        <!-- Additional activities can be added here -->
+
+    </application>
+
+</manifest>
