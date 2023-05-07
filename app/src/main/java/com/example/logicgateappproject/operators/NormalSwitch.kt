@@ -16,6 +16,7 @@ class NormalSwitch(inPosX: Float, inPosY: Float, context: Context): Switch(inPos
         And send a message to connected operators to compute their state*/
 
         state = if (state == 1) 0 else 1
+        spriteId = if (state == 0) R.drawable.normal_switch_off else R.drawable.normal_switch_on
 
         super.compute()
     }

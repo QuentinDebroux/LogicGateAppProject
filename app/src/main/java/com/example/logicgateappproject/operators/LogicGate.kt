@@ -22,14 +22,13 @@ abstract class LogicGate(inPosX: Float, inPosY: Float, context: Context): Operat
         the input logic gate*/
 
         if (input !in inputs){
-            if (input is LogicGate) {
-                if (inputs.size < 2) {
+            when(input) {
+                is LogicGate -> {
                     inputs.add(input)
                     input.connectOut(this)
                     compute()
                 }
-            } else if (input is Switch) {
-                if (inputs.size < 2) {
+                is Switch -> {
                     inputs.add(input)
                     input.connectOut(this)
                     compute()
@@ -43,8 +42,12 @@ abstract class LogicGate(inPosX: Float, inPosY: Float, context: Context): Operat
         the current logic gate to the outputs of
         the input logic gate*/
 
-        if ((output !in outputs) && (output is LogicGate)) { outputs.add(output) }
-        else if ((output !in outputs) && (output is Light)) { outputs.add(output) }
+        if (output !in outputs) {
+            when (output) {
+                is LogicGate -> { outputs.add(output) }
+                is Light -> { outputs.add(output) }
+            }
+        }
     }
 
     override fun compute() {

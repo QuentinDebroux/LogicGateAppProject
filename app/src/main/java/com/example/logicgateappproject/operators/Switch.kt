@@ -1,7 +1,7 @@
 package com.example.logicgateappproject.operators
 
 import android.content.Context
-import com.example.logicgateappproject.operators.Light
+
 
 abstract class Switch(inPosX: Float, inPosY: Float, context: Context): Operator(inPosX, inPosY, context) {
 
@@ -17,11 +17,15 @@ abstract class Switch(inPosX: Float, inPosY: Float, context: Context): Operator(
         the current logic gate to the outputs of
         the input logic gate*/
 
-        if ((output is LogicGate) && (output !in outputs)) {
-            outputs.add(output)
-        }
-        else if ((output is Light) && (output !in outputs)) {
-            outputs.add(output)
+        if (output !in outputs) {
+            when (output) {
+                is LogicGate -> {
+                    outputs.add(output)
+                }
+                is Light -> {
+                    outputs.add(output)
+                }
+            }
         }
     }
 

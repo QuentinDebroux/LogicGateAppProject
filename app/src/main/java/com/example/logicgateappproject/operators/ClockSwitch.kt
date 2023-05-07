@@ -7,9 +7,8 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
-class ClockSwitch(inPosX: Float, inPosY: Float, context: Context, DELAY : Long = 500): Switch(inPosX, inPosY, context) {
+class ClockSwitch(inPosX: Float, inPosY: Float, context: Context, val DELAY : Long = 500): Switch(inPosX, inPosY, context) {
     private var on = false
-    val DELAY : Long = DELAY
     lateinit var threadclock: Job   //Job represents a running task, initialized to null.
     // It is part of the coroutine package. Here, it represents the
     //coroutine used to make the switch blink. Since it is
@@ -44,6 +43,7 @@ class ClockSwitch(inPosX: Float, inPosY: Float, context: Context, DELAY : Long =
             super.compute()
         }
 
+        spriteId = if (state == 0) R.drawable.clock_switch_off else R.drawable.clock_switch_on
 
     }
 }

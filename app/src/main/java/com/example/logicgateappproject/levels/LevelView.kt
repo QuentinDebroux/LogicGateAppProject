@@ -16,9 +16,8 @@ class LevelView @JvmOverloads constructor (context: Context, attributes: Attribu
     val textPaint = Paint()
     var drawing = false
 
-    var screenWidth = 0f
-    var screenHeight = 0f
-    var menuHeight = 0f
+    var screenWidth = 1f
+    var screenHeight = 1f
     val opFract: Float = 8f                                               //largeur de l'ecran par rapport à la largeur d'un operateur
 
     lateinit var thread: Thread
@@ -43,6 +42,7 @@ class LevelView @JvmOverloads constructor (context: Context, attributes: Attribu
                     println("touch")
 
                     obj.switchState()
+                    println(obj.outputs)
 
                     out = true
                 }
@@ -68,15 +68,15 @@ class LevelView @JvmOverloads constructor (context: Context, attributes: Attribu
 
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
         super.onSizeChanged(w, h, oldw, oldh)
-        screenWidth = w.toFloat()
-        screenHeight = h.toFloat()
-        menuHeight = (2*h/ opFract)
 
         for (obj in operators) {
             obj.size = (w/ opFract)
-            obj.updatePos(obj.posX, obj.posY)
+            obj.updatePos(obj.posX*w/screenWidth, obj.posY*h/screenHeight)
+            println(obj.posY)
         }
 
+        screenWidth = w.toFloat()
+        screenHeight = h.toFloat()
 
         textPaint.setTextSize(w / 20f)
         textPaint.isAntiAlias = true

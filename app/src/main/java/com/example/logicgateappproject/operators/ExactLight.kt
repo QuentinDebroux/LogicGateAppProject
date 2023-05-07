@@ -26,6 +26,8 @@ class ExactLight(inPosX: Float, inPosY: Float, context: Context, max : Int = 5, 
         }
         else {state = 0}
 
+        spriteId = if (state == 0) R.drawable.lit_off_light_bulb_exact else R.drawable.lit_on_light_bulb_exact
+
         super.compute()
     }
 }

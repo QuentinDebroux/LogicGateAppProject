@@ -2,14 +2,12 @@ package com.example.logicgateappproject.operators
 
 import android.content.Context
 import com.example.logicgateappproject.R
-import java.util.*
 import android.os.Handler
 import android.os.Looper
 
 
-class TimerSwitch(inPosX: Float, inPosY: Float, context: Context, DURATION : Long = 1000): Switch(inPosX, inPosY, context) {
+class TimerSwitch(inPosX: Float, inPosY: Float, context: Context, val DURATION : Long = 1000): Switch(inPosX, inPosY, context) {
 
-    val DURATION : Long = DURATION
     val handler = Handler(Looper.getMainLooper())
     //The Handler allows you to post a Runnable (a task that will be executed)
     //to the main/UI thread.
@@ -33,6 +31,8 @@ class TimerSwitch(inPosX: Float, inPosY: Float, context: Context, DURATION : Lon
                 super.compute()
             }, DURATION)
         }
+
+        spriteId = if (state == 0) R.drawable.timer_switch_off else R.drawable.timer_switch_on
 
         super.compute()
     }

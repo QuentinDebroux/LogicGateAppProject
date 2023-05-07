@@ -22,8 +22,8 @@ abstract class Level: AppCompatActivity() {
 
     fun connectOperators(output: Operator, input: Operator) {
         when(output) {
-            is Light -> { output.connectIn(input) }
             is LogicGate -> { output.connectIn(input) }
+            is Light -> { output.connectIn(input) }
         }
     }
 
