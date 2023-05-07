@@ -19,12 +19,8 @@ abstract class Switch(inPosX: Float, inPosY: Float, context: Context): Operator(
 
         if (output !in outputs) {
             when (output) {
-                is LogicGate -> {
-                    outputs.add(output)
-                }
-                is Light -> {
-                    outputs.add(output)
-                }
+                is LogicGate -> { outputs.add(output) }
+                is Light -> { outputs.add(output) }
             }
         }
     }
