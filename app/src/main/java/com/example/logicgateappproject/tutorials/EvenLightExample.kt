@@ -25,7 +25,7 @@ class EvenLightExample:InteractiveLightExample() {
         onConstruct()
     }
 
-    override fun switchStateLight() {
+    override fun switchSpriteLight() {
         when(light.state) {
             0 -> {l.setImageResource(R.drawable.lit_off_light_bulb_even)}
             1 -> {l.setImageResource(R.drawable.lit_on_light_bulb_even)}
