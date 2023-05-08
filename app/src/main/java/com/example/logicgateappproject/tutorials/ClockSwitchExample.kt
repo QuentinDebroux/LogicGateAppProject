@@ -28,7 +28,7 @@ class ClockSwitchExample: InteractiveSwitchExample() {
         l = findViewById(R.id.light__switch)
 
         l.setImageResource(R.drawable.lit_off_light_bulb)
-        switchStateLight()
+        switchSpriteLight()
 
         light.connectIn(input = switch)
 
@@ -43,8 +43,8 @@ class ClockSwitchExample: InteractiveSwitchExample() {
                     while (on) {
                         withContext(Dispatchers.Main) {
                             //println(switch.state)
-                            switchStateSprite(s, switch.state)
-                            switchStateLight()
+                            switchSpriteSwitch(s, switch.state)
+                            switchSpriteLight()
                         }
                     }
                 }
@@ -53,14 +53,14 @@ class ClockSwitchExample: InteractiveSwitchExample() {
                 on = false
                 switch.switchState()
                 switch_on_thread.cancel()
-                switchStateSprite(s, switch.state)
-                switchStateLight()
+                switchSpriteSwitch(s, switch.state)
+                switchSpriteLight()
             }
         }
 
     }
 
-    override fun switchStateSprite(switch: ImageView, state: Int) {
+    override fun switchSpriteSwitch(switch: ImageView, state: Int) {
         when(state) {
             0 -> {switch.setImageResource(R.drawable.clock_switch_off)}
             1 -> {switch.setImageResource(R.drawable.clock_switch_on)}
