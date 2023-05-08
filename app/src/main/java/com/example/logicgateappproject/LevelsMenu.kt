@@ -9,7 +9,7 @@ import com.example.logicgateappproject.levels.*
 
 class LevelsMenu: AppCompatActivity() {
 
-    private val levelNumber: Int = 1
+    private val levelNumber: Int = 2
     private lateinit var buttonContainer: LinearLayout
     //val levelList = mutableListOf<Level>()
 
@@ -25,6 +25,13 @@ class LevelsMenu: AppCompatActivity() {
                     button.setText("level $i")
                     button.setOnClickListener() {
                         val intent = Intent(this, Level1::class.java)
+                        startActivity(intent)
+                    }
+                }
+                2 -> {
+                    button.setText("level $i")
+                    button.setOnClickListener() {
+                        val intent = Intent(this, Level2::class.java)
                         startActivity(intent)
                     }
                 }
