@@ -25,9 +25,9 @@ abstract class InteractiveSwitchExample: AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
     abstract fun onConstruct()
 
-    abstract fun switchStateSprite(switch: ImageView, state: Int)
+    abstract fun switchSpriteSwitch(switch: ImageView, state: Int)
 
-    fun switchStateLight() {
+    fun switchSpriteLight() {
         when(light.state) {
             0 -> {l.setImageResource(R.drawable.lit_off_light_bulb)}
             1 -> {l.setImageResource(R.drawable.lit_on_light_bulb)}
