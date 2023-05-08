@@ -24,18 +24,18 @@ class NotGateExample: InteractiveGateExample() {
 
     override fun onConstruct() {
         s1 = findViewById(R.id.s1)
-        light = findViewById(R.id.light)
+        l = findViewById(R.id.light)
 
         lg.connectIn(input = switch1)
 
         s1.setImageResource(R.drawable.normal_switch_off)
-        light.setImageResource(R.drawable.lit_off_light_bulb)
-        switchStateLight()
+        l.setImageResource(R.drawable.lit_off_light_bulb)
+        switchSpriteLight()
 
         s1.setOnClickListener {
             switch1.switchState()
-            switchStateSprite(s1, switch1.state)
-            switchStateLight()
+            switchSpriteSwitch(s1, switch1.state)
+            switchSpriteLight()
         }
     }
 }
