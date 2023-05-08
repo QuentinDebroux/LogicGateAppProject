@@ -1,18 +1,35 @@
 package com.example.logicgateappproject.levels
 
+import android.app.AlertDialog
+import android.app.Dialog
 import android.content.Context
+import android.content.DialogInterface
+import android.content.Intent
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
+import android.os.Bundle
 import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.SurfaceHolder
 import android.view.SurfaceView
+import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.FragmentActivity
+import com.example.logicgateappproject.LevelsMenu
+import com.example.logicgateappproject.R
 import com.example.logicgateappproject.operators.*
+import kotlin.properties.Delegates
 
 class LevelView @JvmOverloads constructor (context: Context, attributes: AttributeSet? = null, defStyleAttr: Int = 0): SurfaceView(context, attributes, defStyleAttr), SurfaceHolder.Callback, Runnable {
 
+    var levelName: String = "Level"
+    var win: Boolean by Delegates.observable(false) {
+            prop, old, new -> showDialog(new)
+        // Appeler ici une autre fonction ou effectuer une autre action en cas de modification de la variable "state"
+    }
+
     private lateinit var canvas: Canvas
+    private val activity = context as FragmentActivity
     private val backgroundPaint = Paint()
     private val textPaint = Paint()
     private var drawing = false
@@ -84,6 +101,30 @@ class LevelView @JvmOverloads constructor (context: Context, attributes: Attribu
     override fun run() {
         while (drawing) {
             draw()
+        }
+    }
+
+    private fun showDialog(gameState: Boolean) {
+
+        println("dialog")
+        class WinDialogFragment(val levelName: String) : DialogFragment() {
+            override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
+                return activity?.let {
+                    val builder = AlertDialog.Builder(it)
+                    builder.setTitle(levelName)
+                    builder.setMessage(R.string.level_done)
+                        .setPositiveButton(R.string.back) { dialog, id ->
+                            val intent = Intent(activity, LevelsMenu::class.java)
+                            startActivity(intent)
+                        }
+                    builder.create()
+                } ?: throw IllegalStateException("Activity cannot be null")
+            }
+        }
+
+        if (gameState) {
+            val winDialog = WinDialogFragment(levelName)
+            winDialog.show(activity.supportFragmentManager, "WinDialogFragment")
         }
     }
 
