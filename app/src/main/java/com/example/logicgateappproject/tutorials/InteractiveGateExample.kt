@@ -6,45 +6,60 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.logicgateappproject.R
 import com.example.logicgateappproject.TutorialsMenu
-import com.example.logicgateappproject.operators.LogicGate
+import com.example.logicgateappproject.operators.Light
 import com.example.logicgateappproject.operators.NormalSwitch
 
-abstract class InteractiveGateExample: AppCompatActivity() {
+abstract class InteractiveLightExample: AppCompatActivity() {
 
     protected lateinit var name: TextView
     protected lateinit var description: TextView
-    protected lateinit var lgSprite: ImageView
 
-    protected val switch1: NormalSwitch = NormalSwitch(0f, 0f, this)
-    protected val switch2: NormalSwitch = NormalSwitch(0f, 0f, this)
-    protected lateinit var lg: LogicGate
+    protected var switch1: NormalSwitch = NormalSwitch(0f, 0f, this)
+    protected var switch2: NormalSwitch = NormalSwitch(0f, 0f, this)
+    protected var switch3: NormalSwitch = NormalSwitch(0f, 0f, this)
+    protected var switch4: NormalSwitch = NormalSwitch(0f, 0f, this)
+    protected lateinit var light: Light
 
     protected lateinit var s1: ImageView
     protected lateinit var s2: ImageView
+    protected lateinit var s3: ImageView
+    protected lateinit var s4: ImageView
     protected lateinit var l: ImageView
 
     open fun onConstruct() {
-        s1 = findViewById(R.id.s1)
-        s2 = findViewById(R.id.s2)
-        l = findViewById(R.id.light)
+        s1 = findViewById(R.id.s1__light)
+        s2 = findViewById(R.id.s2__light)
+        s3 = findViewById(R.id.s3__light)
+        s4 = findViewById(R.id.s4__light)
 
         s1.setImageResource(R.drawable.normal_switch_off)
         s2.setImageResource(R.drawable.normal_switch_off)
-        l.setImageResource(R.drawable.lit_off_light_bulb)
-        switchSpriteLight()
+        s3.setImageResource(R.drawable.normal_switch_off)
+        s4.setImageResource(R.drawable.normal_switch_off)
 
-        lg.connectIn(input = switch1)
-        lg.connectIn(input = switch2)
+        light.connectIn(input = switch1)
+        light.connectIn(input = switch2)
+        light.connectIn(input = switch3)
+        light.connectIn(input = switch4)
 
         s1.setOnClickListener {
             switch1.switchState()
             switchSpriteSwitch(s1, switch1.state)
             switchSpriteLight()
         }
-
         s2.setOnClickListener {
             switch2.switchState()
             switchSpriteSwitch(s2, switch2.state)
+            switchSpriteLight()
+        }
+        s3.setOnClickListener {
+            switch3.switchState()
+            switchSpriteSwitch(s3, switch3.state)
+            switchSpriteLight()
+        }
+        s4.setOnClickListener {
+            switch4.switchState()
+            switchSpriteSwitch(s4, switch4.state)
             switchSpriteLight()
         }
     }
@@ -56,12 +71,7 @@ abstract class InteractiveGateExample: AppCompatActivity() {
         }
     }
 
-    fun switchSpriteLight() {
-        when(lg.state) {
-            0 -> {l.setImageResource(R.drawable.lit_off_light_bulb)}
-            1 -> {l.setImageResource(R.drawable.lit_on_light_bulb)}
-        }
-    }
+    abstract fun switchSpriteLight()
 
     @Deprecated("Deprecated in Java")
     override fun onBackPressed() {
