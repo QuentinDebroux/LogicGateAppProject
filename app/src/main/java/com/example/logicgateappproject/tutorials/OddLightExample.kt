@@ -6,7 +6,7 @@ import com.example.logicgateappproject.R
 import com.example.logicgateappproject.operators.OddLight
 import com.example.logicgateappproject.operators.NormalSwitch
 
-class OddLightExample:InteractiveLightExample() {
+class OddLightExample: InteractiveLightExample() {
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,7 +25,7 @@ class OddLightExample:InteractiveLightExample() {
         onConstruct()
     }
 
-    override fun switchStateLight() {
+    override fun switchSpriteLight() {
         when(light.state) {
             0 -> {l.setImageResource(R.drawable.lit_off_light_bulb_odd)}
             1 -> {l.setImageResource(R.drawable.lit_on_light_bulb_odd)}
