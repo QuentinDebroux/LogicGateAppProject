@@ -44,34 +44,34 @@ abstract class InteractiveLightExample: AppCompatActivity() {
 
         s1.setOnClickListener {
             switch1.switchState()
-            switchStateSprite(s1, switch1.state)
-            switchStateLight()
+            switchSpriteSwitch(s1, switch1.state)
+            switchSpriteLight()
         }
         s2.setOnClickListener {
             switch2.switchState()
-            switchStateSprite(s2, switch2.state)
-            switchStateLight()
+            switchSpriteSwitch(s2, switch2.state)
+            switchSpriteLight()
         }
         s3.setOnClickListener {
             switch3.switchState()
-            switchStateSprite(s3, switch3.state)
-            switchStateLight()
+            switchSpriteSwitch(s3, switch3.state)
+            switchSpriteLight()
         }
         s4.setOnClickListener {
             switch4.switchState()
-            switchStateSprite(s4, switch4.state)
-            switchStateLight()
+            switchSpriteSwitch(s4, switch4.state)
+            switchSpriteLight()
         }
     }
 
-    fun switchStateSprite(switch: ImageView, state: Int) {
+    fun switchSpriteSwitch(switch: ImageView, state: Int) {
         when(state) {
             0 -> {switch.setImageResource(R.drawable.normal_switch_off)}
             1 -> {switch.setImageResource(R.drawable.normal_switch_on)}
         }
     }
 
-    abstract fun switchStateLight()
+    abstract fun switchSpriteLight()
 
     @Deprecated("Deprecated in Java")
     override fun onBackPressed() {
