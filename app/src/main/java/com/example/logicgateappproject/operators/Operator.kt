@@ -6,7 +6,6 @@ import android.graphics.RectF
 import android.view.MotionEvent
 import androidx.core.content.ContextCompat
 import com.example.logicgateappproject.R
-import kotlin.properties.Delegates
 
 abstract class Operator(var posX: Float, var posY: Float, val context: Context) {
 
@@ -15,10 +14,6 @@ abstract class Operator(var posX: Float, var posY: Float, val context: Context) 
     protected var spriteId: Int = R.drawable.and
 
     var state : Int = 0
-    //var state: Int by Delegates.observable(0) {
-    //        prop, old, new -> println("La variable state a été modifiée de $old à $new")
-    //    // Appeler ici une autre fonction ou effectuer une autre action en cas de modification de la variable "state"
-    //}
 
     init {
         size = 0f
