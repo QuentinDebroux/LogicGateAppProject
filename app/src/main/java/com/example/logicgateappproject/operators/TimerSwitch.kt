@@ -6,9 +6,9 @@ import android.os.Handler
 import android.os.Looper
 
 
-class TimerSwitch(inPosX: Float, inPosY: Float, context: Context, val DURATION : Long = 1000): Switch(inPosX, inPosY, context) {
+class TimerSwitch(inPosX: Float, inPosY: Float, context: Context, private val DURATION : Long = 1000): Switch(inPosX, inPosY, context) {
 
-    val handler = Handler(Looper.getMainLooper())
+    private val handler = Handler(Looper.getMainLooper())
     //The Handler allows you to post a Runnable (a task that will be executed)
     //to the main/UI thread.
     //In Android, only the main thread is allowed to modify the user interface (views),

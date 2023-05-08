@@ -7,9 +7,9 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
-class ClockSwitch(inPosX: Float, inPosY: Float, context: Context, val DELAY : Long = 500): Switch(inPosX, inPosY, context) {
+class ClockSwitch(inPosX: Float, inPosY: Float, context: Context, private val DELAY : Long = 500): Switch(inPosX, inPosY, context) {
     private var on = false
-    lateinit var threadclock: Job   //Job represents a running task, initialized to null.
+    private lateinit var threadclock: Job   //Job represents a running task, initialized to null.
     // It is part of the coroutine package. Here, it represents the
     //coroutine used to make the switch blink. Since it is
     //initialized to null, threadclock is also initialized to null,

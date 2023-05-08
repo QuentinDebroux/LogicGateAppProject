@@ -7,9 +7,9 @@ import androidx.appcompat.app.AppCompatActivity
 
 class Menu : AppCompatActivity() {
 
-    lateinit var tutorials: Button
-    lateinit var levels: Button
-    lateinit var sandbox: Button
+    private lateinit var tutorials: Button
+    private lateinit var levels: Button
+    private lateinit var sandbox: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

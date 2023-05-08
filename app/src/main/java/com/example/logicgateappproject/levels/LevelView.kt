@@ -11,16 +11,16 @@ import android.view.SurfaceView
 import com.example.logicgateappproject.operators.*
 
 class LevelView @JvmOverloads constructor (context: Context, attributes: AttributeSet? = null, defStyleAttr: Int = 0): SurfaceView(context, attributes, defStyleAttr), SurfaceHolder.Callback, Runnable {
-    lateinit var canvas: Canvas
-    val backgroundPaint = Paint()
-    val textPaint = Paint()
-    var drawing = false
+
+    private lateinit var canvas: Canvas
+    private val backgroundPaint = Paint()
+    private val textPaint = Paint()
+    private var drawing = false
+    private lateinit var thread: Thread
 
     var screenWidth = 1f
     var screenHeight = 1f
     val opFract: Float = 8f                                               //largeur de l'ecran par rapport à la largeur d'un operateur
-
-    lateinit var thread: Thread
 
     var operators: ArrayList<Operator> = ArrayList<Operator>()
 
@@ -39,15 +39,12 @@ class LevelView @JvmOverloads constructor (context: Context, attributes: Attribu
                 //println(event.x<obj.hitbox.right && event.x>obj.hitbox.left)
                 //println(event.y<obj.hitbox.top && event.y>obj.hitbox.bottom)
 
-                if (obj is Switch) {
-                    if (event.x<obj.hitbox.right && event.x>obj.hitbox.left
-                        && event.y>obj.hitbox.top && event.y<obj.hitbox.bottom) {
-                        println("touch")
+                if (obj is Switch && obj.contains(event)) {
+                    println("touch")
 
-                        obj.switchState()
+                    obj.switchState()
 
-                        out = true
-                    }
+                    out = true
                 }
                 if (out) {break}
             }

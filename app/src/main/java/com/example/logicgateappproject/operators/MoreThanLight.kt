@@ -3,7 +3,7 @@ package com.example.logicgateappproject.operators
 import android.content.Context
 import com.example.logicgateappproject.R
 
-class MoreThanLight(inPosX: Float, inPosY: Float, context: Context, max : Int = 5, val NB_NEEDED: Int /*= inputs.size/2*/): Light(inPosX, inPosY, context, max) {
+class MoreThanLight(inPosX: Float, inPosY: Float, context: Context, max : Int = 5, private val NB_NEEDED: Int /*= inputs.size/2*/): Light(inPosX, inPosY, context, max) {
 
     override fun onCreate() {   //This function is called when the object is created.
         super.onCreate()

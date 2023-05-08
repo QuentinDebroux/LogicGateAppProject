@@ -10,8 +10,8 @@ import com.example.logicgateappproject.tutorials.*
 
 class TutorialsMenu: AppCompatActivity() {
 
-    val tutoNumber: Int = 10
-    lateinit var buttonContainer: LinearLayout
+    private val tutoNumber: Int = 10
+    private lateinit var buttonContainer: LinearLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

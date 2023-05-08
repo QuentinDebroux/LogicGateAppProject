@@ -3,9 +3,7 @@ package com.example.logicgateappproject.operators
 import android.content.Context
 import com.example.logicgateappproject.R
 
-class ExactLight(inPosX: Float, inPosY: Float, context: Context, max : Int = 5, nbNeeded: Int = 1): Light(inPosX, inPosY, context, max) {
-
-    val NB_NEEDED: Int = nbNeeded
+class ExactLight(inPosX: Float, inPosY: Float, context: Context, max : Int = 5, private val NB_NEEDED: Int = 1): Light(inPosX, inPosY, context, max) {
 
     override fun onCreate() {   //This function is called when the object is created.
         super.onCreate()

@@ -19,7 +19,7 @@
 
     <!-- Lights -->
     <string name="MoreThanLight">More Than Light</string>
-    <string name="ExactLight">Normal Light</string>
+    <string name="ExactLight">Exact Light</string>
     <string name="EvenLight">Even Light</string>
     <string name="OddLight">Odd Light</string>
 

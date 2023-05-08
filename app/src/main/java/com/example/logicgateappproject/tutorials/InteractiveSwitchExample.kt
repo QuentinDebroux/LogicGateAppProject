@@ -13,14 +13,14 @@ import kotlinx.coroutines.*
 
 abstract class InteractiveSwitchExample: AppCompatActivity() {
 
-    lateinit var name: TextView
-    lateinit var description: TextView
+    protected lateinit var name: TextView
+    protected lateinit var description: TextView
 
-    lateinit var switch: Switch
-    var light: ExactLight = ExactLight(0f, 0f, this, 1)
+    protected lateinit var switch: Switch
+    protected var light: ExactLight = ExactLight(0f, 0f, this, 1)
 
-    lateinit var s: ImageView
-    lateinit var l: ImageView
+    protected lateinit var s: ImageView
+    protected lateinit var l: ImageView
 
     @SuppressLint("MissingInflatedId")
     abstract fun onConstruct()

@@ -9,7 +9,7 @@ import com.example.logicgateappproject.operators.*
 
 abstract class Level: AppCompatActivity() {
 
-    lateinit var levelView: LevelView
+    protected lateinit var levelView: LevelView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -5,7 +5,7 @@ import android.content.Context
 
 abstract class Switch(inPosX: Float, inPosY: Float, context: Context): Operator(inPosX, inPosY, context) {
 
-    lateinit var outputs: ArrayList<Operator>   //List of operators that the current logic gate is outputting to
+    private lateinit var outputs: ArrayList<Operator>   //List of operators that the current logic gate is outputting to
 
     override fun onCreate() {
         outputs = ArrayList<Operator>()

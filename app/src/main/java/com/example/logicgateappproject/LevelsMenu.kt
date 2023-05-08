@@ -9,8 +9,8 @@ import com.example.logicgateappproject.levels.*
 
 class LevelsMenu: AppCompatActivity() {
 
-    val levelNumber: Int = 1
-    lateinit var buttonContainer: LinearLayout
+    private val levelNumber: Int = 1
+    private lateinit var buttonContainer: LinearLayout
     //val levelList = mutableListOf<Level>()
 
     override fun onCreate(savedInstanceState: Bundle?) {

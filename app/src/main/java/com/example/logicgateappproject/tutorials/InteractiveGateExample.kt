@@ -11,17 +11,17 @@ import com.example.logicgateappproject.operators.NormalSwitch
 
 abstract class InteractiveGateExample: AppCompatActivity() {
 
-    lateinit var name: TextView
-    lateinit var description: TextView
-    lateinit var lgSprite: ImageView
+    protected lateinit var name: TextView
+    protected lateinit var description: TextView
+    protected lateinit var lgSprite: ImageView
 
-    val switch1: NormalSwitch = NormalSwitch(0f, 0f, this)
-    val switch2: NormalSwitch = NormalSwitch(0f, 0f, this)
+    protected val switch1: NormalSwitch = NormalSwitch(0f, 0f, this)
+    protected val switch2: NormalSwitch = NormalSwitch(0f, 0f, this)
     lateinit var lg: LogicGate
 
-    lateinit var s1: ImageView
-    lateinit var s2: ImageView
-    lateinit var light: ImageView
+    protected lateinit var s1: ImageView
+    protected lateinit var s2: ImageView
+    protected lateinit var light: ImageView
 
     open fun onConstruct() {
         s1 = findViewById(R.id.s1)
@@ -63,6 +63,7 @@ abstract class InteractiveGateExample: AppCompatActivity() {
         }
     }
 
+    @Deprecated("Deprecated in Java")
     override fun onBackPressed() {
         val intent = Intent(this, TutorialsMenu::class.java)
         startActivity(intent)

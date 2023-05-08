@@ -11,20 +11,20 @@ import com.example.logicgateappproject.operators.NormalSwitch
 
 abstract class InteractiveLightExample: AppCompatActivity() {
 
-    lateinit var name: TextView
-    lateinit var description: TextView
+    protected lateinit var name: TextView
+    protected lateinit var description: TextView
 
-    var switch1: NormalSwitch = NormalSwitch(0f, 0f, this)
-    var switch2: NormalSwitch = NormalSwitch(0f, 0f, this)
-    var switch3: NormalSwitch = NormalSwitch(0f, 0f, this)
-    var switch4: NormalSwitch = NormalSwitch(0f, 0f, this)
-    lateinit var light: Light
+    protected var switch1: NormalSwitch = NormalSwitch(0f, 0f, this)
+    protected var switch2: NormalSwitch = NormalSwitch(0f, 0f, this)
+    protected var switch3: NormalSwitch = NormalSwitch(0f, 0f, this)
+    protected var switch4: NormalSwitch = NormalSwitch(0f, 0f, this)
+    protected lateinit var light: Light
 
-    lateinit var s1: ImageView
-    lateinit var s2: ImageView
-    lateinit var s3: ImageView
-    lateinit var s4: ImageView
-    lateinit var l: ImageView
+    protected lateinit var s1: ImageView
+    protected lateinit var s2: ImageView
+    protected lateinit var s3: ImageView
+    protected lateinit var s4: ImageView
+    protected lateinit var l: ImageView
 
     open fun onConstruct() {
         s1 = findViewById(R.id.s1__light)
@@ -73,6 +73,7 @@ abstract class InteractiveLightExample: AppCompatActivity() {
 
     abstract fun switchStateLight()
 
+    @Deprecated("Deprecated in Java")
     override fun onBackPressed() {
         val intent = Intent(this, TutorialsMenu::class.java)
         startActivity(intent)

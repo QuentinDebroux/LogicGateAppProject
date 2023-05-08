@@ -3,15 +3,16 @@ package com.example.logicgateappproject.operators
 import android.content.Context
 import android.graphics.Canvas
 import android.graphics.RectF
+import android.view.MotionEvent
 import androidx.core.content.ContextCompat
 import com.example.logicgateappproject.R
 import kotlin.properties.Delegates
 
-abstract class Operator constructor(var posX: Float, var posY: Float, val context: Context) {
+abstract class Operator(var posX: Float, var posY: Float, val context: Context) {
 
-    var size: Float
-    var hitbox: RectF
-    var spriteId: Int = R.drawable.and
+    protected var size: Float
+    private var hitbox: RectF
+    protected var spriteId: Int = R.drawable.and
 
     var state : Int = 0
     //var state: Int by Delegates.observable(0) {
@@ -40,8 +41,12 @@ abstract class Operator constructor(var posX: Float, var posY: Float, val contex
         hitbox = RectF(posX-size/2, posY-size/2, posX+size/2, posY+size/2)
     }
 
-    open fun updateSize(sz: Float) {
-        size = sz
+    open fun updateSize(nSize: Float) {
+        size = nSize
+    }
+
+    fun contains(event: MotionEvent): Boolean {
+        return (event.x<hitbox.right && event.x>hitbox.left && event.y>hitbox.top && event.y<hitbox.bottom)
     }
 
     abstract fun compute()

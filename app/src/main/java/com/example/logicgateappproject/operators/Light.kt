@@ -4,8 +4,8 @@ import android.content.Context
 
 abstract class Light(inPosX: Float, inPosY: Float, context: Context,val MAXINPUTS : Int = 5): Operator(inPosX, inPosY, context) {
 
-    lateinit var outputs: ArrayList<Operator>   //List of operators that the current logic gate is outputting to
-    lateinit var inputs: ArrayList<Operator>    //List of operators that the current logic gate is inputting from
+    protected lateinit var outputs: ArrayList<Operator>   //List of operators that the current logic gate is outputting to
+    protected lateinit var inputs: ArrayList<Operator>    //List of operators that the current logic gate is inputting from
 
     override fun onCreate() {
         inputs = ArrayList<Operator>()
