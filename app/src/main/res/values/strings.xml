@@ -36,7 +36,7 @@
     <string name="notDesc">\"NOT\" logic gates have a single input\n and invert its signal.</string>
     <string name="timerswitchDesc">A \"Timer Switch\" switches on for a set\n amount of time then switches off.</string>
     <string name="clockswitchDesc">A \"Clock Switch\" switches on and off\n indefinitely, waiting for a short amount of time\n in between.</string>
-    <string name="morethanlightDesc">A \"More Than Light\" turns on if more\n than a set amount of inputs are turned on.\n In this example, you need to turn\n at least 2 switches on</string>
+    <string name="morethanlightDesc">A \"More Than Light\" turns on if more\n than a set amount of inputs are turned on.\n In this example, you need to turn\n at least 3 switches on</string>
     <string name="exactlightDesc">A \"Normal Light\" turns on if exactly \n a set amount of inputs are turned on.\n In this example, you need to turn\n exactly 2 switches on</string>
     <string name="evenlightDesc">An \"Even Light\" turns on if an even\n number of inputs are turned on</string>
     <string name="oddlightDesc">An \"Odd Light\" turns on if an odd\n number of inputs are turned on</string>
