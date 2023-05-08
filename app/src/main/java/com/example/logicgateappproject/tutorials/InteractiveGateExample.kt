@@ -17,49 +17,49 @@ abstract class InteractiveGateExample: AppCompatActivity() {
 
     protected val switch1: NormalSwitch = NormalSwitch(0f, 0f, this)
     protected val switch2: NormalSwitch = NormalSwitch(0f, 0f, this)
-    lateinit var lg: LogicGate
+    protected lateinit var lg: LogicGate
 
     protected lateinit var s1: ImageView
     protected lateinit var s2: ImageView
-    protected lateinit var light: ImageView
+    protected lateinit var l: ImageView
 
     open fun onConstruct() {
         s1 = findViewById(R.id.s1)
         s2 = findViewById(R.id.s2)
-        light = findViewById(R.id.light)
+        l = findViewById(R.id.light)
 
         s1.setImageResource(R.drawable.normal_switch_off)
         s2.setImageResource(R.drawable.normal_switch_off)
-        light.setImageResource(R.drawable.lit_off_light_bulb)
-        switchStateLight()
+        l.setImageResource(R.drawable.lit_off_light_bulb)
+        switchSpriteLight()
 
         lg.connectIn(input = switch1)
         lg.connectIn(input = switch2)
 
         s1.setOnClickListener {
             switch1.switchState()
-            switchStateSprite(s1, switch1.state)
-            switchStateLight()
+            switchSpriteSwitch(s1, switch1.state)
+            switchSpriteLight()
         }
 
         s2.setOnClickListener {
             switch2.switchState()
-            switchStateSprite(s2, switch2.state)
-            switchStateLight()
+            switchSpriteSwitch(s2, switch2.state)
+            switchSpriteLight()
         }
     }
 
-    fun switchStateSprite(switch: ImageView, state: Int) {
+    fun switchSpriteSwitch(switch: ImageView, state: Int) {
         when(state) {
             0 -> {switch.setImageResource(R.drawable.normal_switch_off)}
             1 -> {switch.setImageResource(R.drawable.normal_switch_on)}
         }
     }
 
-    fun switchStateLight() {
+    fun switchSpriteLight() {
         when(lg.state) {
-            0 -> {light.setImageResource(R.drawable.lit_off_light_bulb)}
-            1 -> {light.setImageResource(R.drawable.lit_on_light_bulb)}
+            0 -> {l.setImageResource(R.drawable.lit_off_light_bulb)}
+            1 -> {l.setImageResource(R.drawable.lit_on_light_bulb)}
         }
     }
 
