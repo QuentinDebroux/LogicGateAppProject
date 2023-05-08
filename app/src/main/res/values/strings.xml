@@ -41,4 +41,9 @@
     <string name="evenlightDesc">An \"Even Light\" turns on if an even\n number of inputs are turned on</string>
     <string name="oddlightDesc">An \"Odd Light\" turns on if an odd\n number of inputs are turned on</string>
 
+
+    <!-- Levels -->
+    <string name="level_done">Congrats, you did it!</string>
+    <string name="back">Go back</string>
+
 </resources>
