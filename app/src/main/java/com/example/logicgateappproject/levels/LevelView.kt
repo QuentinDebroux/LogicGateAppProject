@@ -82,9 +82,9 @@ class LevelView @JvmOverloads constructor (context: Context, attributes: Attribu
             holder.unlockCanvasAndPost(canvas)
         }
     }
+    override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {   //called when the size of the screen changes
 
-    override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
-        super.onSizeChanged(w, h, oldw, oldh)
+        super.onSizeChanged(w, h, oldw, oldh)                          //update the size of the operators
 
         for (obj in operators) {
             obj.updateSize(w/ opFract)
@@ -104,25 +104,25 @@ class LevelView @JvmOverloads constructor (context: Context, attributes: Attribu
         }
     }
 
-    private fun showDialog(gameState: Boolean) {
+    private fun showDialog(gameState: Boolean) {                      //called when the level is done
 
         println("dialog")
-        class WinDialogFragment(val levelName: String) : DialogFragment() {
+        class WinDialogFragment(val levelName: String) : DialogFragment() {    //create a dialog
             override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-                return activity?.let {
+                return activity?.let {  // Use the Builder class for convenient dialog construction
                     val builder = AlertDialog.Builder(it)
                     builder.setTitle(levelName)
                     builder.setMessage(R.string.level_done)
-                        .setPositiveButton(R.string.back) { dialog, id ->
+                        .setPositiveButton(R.string.back) { dialog, id ->   //back to the level menu
                             val intent = Intent(activity, LevelsMenu::class.java)
-                            startActivity(intent)
+                            startActivity(intent)   //start the activity
                         }
                     builder.create()
                 } ?: throw IllegalStateException("Activity cannot be null")
             }
         }
 
-        if (gameState) {
+        if (gameState) {    //if the level is done
             val winDialog = WinDialogFragment(levelName)
             winDialog.show(activity.supportFragmentManager, "WinDialogFragment")
         }
@@ -139,10 +139,10 @@ class LevelView @JvmOverloads constructor (context: Context, attributes: Attribu
         thread.start()
     }
 
-    override fun surfaceChanged(holder: SurfaceHolder, format: Int, width: Int, height: Int) {}
+    override fun surfaceChanged(holder: SurfaceHolder, format: Int, width: Int, height: Int) {} //called when the surface is changed
 
-    override fun surfaceCreated(holder: SurfaceHolder) {}
+    override fun surfaceCreated(holder: SurfaceHolder) {}   //called when the surface is created
 
-    override fun surfaceDestroyed(holder: SurfaceHolder) {}
+    override fun surfaceDestroyed(holder: SurfaceHolder) {} //called when the surface is destroyed
 
 }

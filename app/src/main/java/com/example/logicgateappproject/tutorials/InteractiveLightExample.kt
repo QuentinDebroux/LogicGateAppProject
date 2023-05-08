@@ -11,6 +11,8 @@ import com.example.logicgateappproject.operators.NormalSwitch
 
 abstract class InteractiveLightExample: AppCompatActivity() {
 
+    // The following variables are used in the tutorial to display the name, description, and sprite of the gate.
+
     protected lateinit var name: TextView
     protected lateinit var description: TextView
 
@@ -27,7 +29,7 @@ abstract class InteractiveLightExample: AppCompatActivity() {
     protected lateinit var l: ImageView
 
     open fun onConstruct() {
-        s1 = findViewById(R.id.s1__light)
+        s1 = findViewById(R.id.s1__light)   //Links to xml file
         s2 = findViewById(R.id.s2__light)
         s3 = findViewById(R.id.s3__light)
         s4 = findViewById(R.id.s4__light)
@@ -37,11 +39,12 @@ abstract class InteractiveLightExample: AppCompatActivity() {
         s3.setImageResource(R.drawable.normal_switch_off)
         s4.setImageResource(R.drawable.normal_switch_off)
 
-        light.connectIn(input = switch1)
+        light.connectIn(input = switch1)    //Connects the switches to the light
         light.connectIn(input = switch2)
         light.connectIn(input = switch3)
         light.connectIn(input = switch4)
 
+        //When the switches are clicked, their state and their sprite are changed
         s1.setOnClickListener {
             switch1.switchState()
             switchSpriteSwitch(s1, switch1.state)
@@ -64,7 +67,7 @@ abstract class InteractiveLightExample: AppCompatActivity() {
         }
     }
 
-    fun switchSpriteSwitch(switch: ImageView, state: Int) {
+    fun switchSpriteSwitch(switch: ImageView, state: Int) { //Changes the sprite of the switch depending on the state
         when(state) {
             0 -> {switch.setImageResource(R.drawable.normal_switch_off)}
             1 -> {switch.setImageResource(R.drawable.normal_switch_on)}
@@ -75,7 +78,7 @@ abstract class InteractiveLightExample: AppCompatActivity() {
 
     @Deprecated("Deprecated in Java")
     override fun onBackPressed() {
-        val intent = Intent(this, TutorialsMenu::class.java)
+        val intent = Intent(this, TutorialsMenu::class.java)    //Links to the TutorialsMenu
         startActivity(intent)
     }
 }

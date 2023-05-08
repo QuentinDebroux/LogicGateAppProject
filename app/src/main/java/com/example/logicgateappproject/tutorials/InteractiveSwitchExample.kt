@@ -13,6 +13,8 @@ import kotlinx.coroutines.*
 
 abstract class InteractiveSwitchExample: AppCompatActivity() {
 
+    // The following variables are used in the tutorial to display the name, description, and sprite of the gate.
+
     protected lateinit var name: TextView
     protected lateinit var description: TextView
 
@@ -23,11 +25,14 @@ abstract class InteractiveSwitchExample: AppCompatActivity() {
     protected lateinit var l: ImageView
 
     @SuppressLint("MissingInflatedId")
-    abstract fun onConstruct()
+    abstract fun onConstruct()  //This function is used to construct the gate and set the name and description
+                                //It is redefined in each switch tutorial because each switch tutorial has it's
+                                //own OnClick listener that has to be aware that the state can change
+                                //even when the switch is not clicked
 
     abstract fun switchSpriteSwitch(switch: ImageView, state: Int)
 
-    fun switchSpriteLight() {
+    fun switchSpriteLight() {   //Changes the sprite of the light depending on the state
         when(light.state) {
             0 -> {l.setImageResource(R.drawable.lit_off_light_bulb)}
             1 -> {l.setImageResource(R.drawable.lit_on_light_bulb)}
@@ -35,7 +40,7 @@ abstract class InteractiveSwitchExample: AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        val intent = Intent(this, TutorialsMenu::class.java)
+        val intent = Intent(this, TutorialsMenu::class.java)    //When the back button is pressed, the user is sent back to the tutorial menu
         startActivity(intent)
     }
 }

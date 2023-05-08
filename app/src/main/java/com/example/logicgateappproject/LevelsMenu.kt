@@ -9,35 +9,35 @@ import com.example.logicgateappproject.levels.*
 
 class LevelsMenu: AppCompatActivity() {
 
-    private val levelNumber: Int = 2
-    private lateinit var buttonContainer: LinearLayout
+    private val levelNumber: Int = 2    //number of levels
+    private lateinit var buttonContainer: LinearLayout  //container for the buttons
     //val levelList = mutableListOf<Level>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.levels_menu)
-        buttonContainer = findViewById<LinearLayout>(R.id.buttonContainer)
+        setContentView(R.layout.levels_menu)    // Link to the layout file
+        buttonContainer = findViewById<LinearLayout>(R.id.buttonContainer)  // Link to the button container from the layout file
 
         for (i in 1..levelNumber) {
             val button = Button(this)
             when(i) {
                 1 -> {
                     button.setText("level $i")
-                    button.setOnClickListener() {
-                        val intent = Intent(this, Level1::class.java)
-                        startActivity(intent)
+                    button.setOnClickListener() {   //when the button is clicked, go to level 1
+                        val intent = Intent(this, Level1::class.java)   //go to level 1
+                        startActivity(intent)   //start the activity
                     }
                 }
                 2 -> {
                     button.setText("level $i")
-                    button.setOnClickListener() {
-                        val intent = Intent(this, Level2::class.java)
-                        startActivity(intent)
+                    button.setOnClickListener() {   //when the button is clicked, go to level 2
+                        val intent = Intent(this, Level2::class.java)   //go to level 2
+                        startActivity(intent)   //start the activity
                     }
                 }
                 else -> { button.text = "level $i" }
             }
-            buttonContainer.addView(button)
+            buttonContainer.addView(button) //add the button to the button container
         }
 
         /*for (i in 1..levelNumber) {
@@ -57,7 +57,7 @@ class LevelsMenu: AppCompatActivity() {
 
     @Deprecated("Deprecated in Java")
     override fun onBackPressed() {
-        val intent = Intent(this, Menu::class.java)
+        val intent = Intent(this, Menu::class.java)   //When the back button is pressed, the user is sent back to the menu
         startActivity(intent)
     }
 }

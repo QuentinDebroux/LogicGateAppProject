@@ -14,8 +14,8 @@ abstract class Level: AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.level)
-        levelView = findViewById<LevelView>(R.id.vLevels)
+        setContentView(R.layout.level)  // Link to the layout file
+        levelView = findViewById<LevelView>(R.id.vLevels)   // Link to the level view from the layout file
         declareOperators()
     }
 
@@ -23,8 +23,8 @@ abstract class Level: AppCompatActivity() {
 
      fun connectOperators(output: Operator, input: Operator) {
         when(output) {
-            is LogicGate -> { output.connectIn(input) }
-            is Light -> { output.connectIn(input) }
+            is LogicGate -> { output.connectIn(input) }  //connect the output to the input
+            is Light -> { output.connectIn(input) } //connect the output to the input
         }
     }
 

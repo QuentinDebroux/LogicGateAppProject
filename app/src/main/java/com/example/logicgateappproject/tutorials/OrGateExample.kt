@@ -8,7 +8,9 @@ class OrGateExample: InteractiveGateExample() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.interactive_gate_example)
+        setContentView(R.layout.interactive_gate_example)   // Link to the layout file
+
+        //Redefine the variables from the InteractiveGateExample
 
         name = findViewById(R.id.lgName)
         description = findViewById(R.id.description)
@@ -18,7 +20,7 @@ class OrGateExample: InteractiveGateExample() {
         description.setText(R.string.orDesc)
         lgSprite.setImageResource(R.drawable.or)
 
-        lg = Or(0f, 0f, this)
+        lg = Or(0f, 0f, this)   // Create an Or gate
         super.onConstruct()
     }
 }

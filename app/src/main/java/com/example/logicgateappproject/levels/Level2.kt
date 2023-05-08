@@ -4,13 +4,13 @@ import android.os.Bundle
 import com.example.logicgateappproject.operators.*
 
 class Level2: Level() {
-    private var h: Float = 1f
-    private var w: Float = 1f
+    private var h: Float = 1f   // Height of the screen
+    private var w: Float = 1f   // Width of the screen
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        h = levelView.screenHeight
-        w = levelView.screenWidth
+        super.onCreate(savedInstanceState)  // Call the super class constructor to create the instance of the level
+        h = levelView.screenHeight  // Get the height of the screen
+        w = levelView.screenWidth   // Get the width of the screen
         levelView.levelName = "Level 2"
     }
 
@@ -28,7 +28,7 @@ class Level2: Level() {
         connectOperators(output = levelView.operators[1],input = levelView.operators[2])
         connectOperators(output = levelView.operators[1],input = levelView.operators[3])
 
-        thread = Thread(Runnable {
+        thread = Thread(Runnable {  // Create a thread to check if the level is won
             while (true) {
                 if (levelView.operators[0].state == 1) {
                     levelView.win = true

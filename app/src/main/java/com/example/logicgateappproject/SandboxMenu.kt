@@ -3,16 +3,16 @@ package com.example.logicgateappproject
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.logicgateappproject.sandbox.SandboxView
+import com.example.logicgateappproject.sandbox.SandboxView2
 
 class SandboxMenu: AppCompatActivity() {
 
-    lateinit var sandboxView: SandboxView
+    lateinit var sandboxView: SandboxView2
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.sandbox_menu)
-        sandboxView = findViewById<SandboxView>(R.id.vSandbox)
+        sandboxView = findViewById<SandboxView2>(R.id.vSandbox)
     }
 
     override fun onPause() {
