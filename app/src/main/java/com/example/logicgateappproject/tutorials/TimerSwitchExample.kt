@@ -33,7 +33,7 @@ class TimerSwitchExample: InteractiveSwitchExample() {
 
         l = findViewById(R.id.light__switch)
         l.setImageResource(R.drawable.lit_off_light_bulb)
-        switchStateLight()
+        switchSpriteLight()
 
         light.connectIn(input = switch)
         val handler = Handler(Looper.getMainLooper())
@@ -44,17 +44,17 @@ class TimerSwitchExample: InteractiveSwitchExample() {
         s.setOnClickListener {
             if (switch.state == 0) {
                 switch.switchState()
-                switchStateSprite(s, switch.state)
-                switchStateLight()
+                switchSpriteSwitch(s, switch.state)
+                switchSpriteLight()
                 handler.postDelayed({
-                    switchStateSprite(s, switch.state)
-                    switchStateLight()
+                    switchSpriteSwitch(s, switch.state)
+                    switchSpriteLight()
                 }, DURATION)
             }
         }
     }
 
-    override fun switchStateSprite(switch: ImageView, state: Int) {
+    override fun switchSpriteSwitch(switch: ImageView, state: Int) {
         when(state) {
             0 -> {switch.setImageResource(R.drawable.timer_switch_off)}
             1 -> {switch.setImageResource(R.drawable.timer_switch_on)}
