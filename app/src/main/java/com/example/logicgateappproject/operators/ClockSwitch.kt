@@ -40,6 +40,7 @@ class ClockSwitch(inPosX: Float, inPosY: Float, context: Context, private val DE
             on = false
             threadclock.cancel()    //Cancel the coroutine.
             state = 0
+            spriteId = if (state == 0) R.drawable.clock_switch_off else R.drawable.clock_switch_on  //Change the sprite of the switch.
             super.compute()         //Call the compute function of the parent class.
         }
 
