@@ -30,6 +30,7 @@ class ClockSwitch(inPosX: Float, inPosY: Float, context: Context, private val DE
             threadclock = GlobalScope.launch {
                 while (on) {
                     state = if (state == 1) 0 else 1    //Switch the state of the object.
+                    spriteId = if (state == 0) R.drawable.clock_switch_off else R.drawable.clock_switch_on  //Change the sprite of the switch.
                     super.compute()
                     delay(DELAY)
                 }
@@ -41,8 +42,6 @@ class ClockSwitch(inPosX: Float, inPosY: Float, context: Context, private val DE
             state = 0
             super.compute()         //Call the compute function of the parent class.
         }
-
-        spriteId = if (state == 0) R.drawable.clock_switch_off else R.drawable.clock_switch_on  //Change the sprite of the switch.
 
     }
 }
