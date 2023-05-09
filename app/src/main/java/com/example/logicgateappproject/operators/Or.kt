@@ -5,9 +5,12 @@ import com.example.logicgateappproject.R
 
 class Or(inPosX: Float, inPosY: Float, context: Context): LogicGate(inPosX, inPosY, context) {
 
+    companion object {
+        var spriteId = R.drawable.or
+    }
+
     override fun onCreate() {
         super.onCreate()
-        spriteId = R.drawable.or
     }
 
     override fun compute() {

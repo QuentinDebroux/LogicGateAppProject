@@ -5,9 +5,11 @@ import com.example.logicgateappproject.R
 
 class Not(inPosX: Float, inPosY: Float, context: Context): LogicGate(inPosX, inPosY, context) {
 
+    companion object {
+        var spriteId = R.drawable.not
+    }
     override fun onCreate() {   //This function is called when the object is created.
         super.onCreate()
-        spriteId = R.drawable.not
     }
 
     override fun compute() {

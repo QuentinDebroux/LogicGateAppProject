@@ -5,9 +5,11 @@ import com.example.logicgateappproject.R
 
 class Xor(inPosX: Float, inPosY: Float, context: Context): LogicGate(inPosX, inPosY, context) {
 
+    companion object {
+        var spriteId = R.drawable.xor
+    }
     override fun onCreate() {   //This function is called when the object is created.
         super.onCreate()
-        spriteId = R.drawable.xor
     }
 
     override fun compute() {

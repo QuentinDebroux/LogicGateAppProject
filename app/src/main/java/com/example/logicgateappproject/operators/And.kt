@@ -5,9 +5,13 @@ import com.example.logicgateappproject.R
 
 class And(inPosX: Float, inPosY: Float, context: Context): LogicGate(inPosX, inPosY, context) {
 
+    companion object {
+        var spriteId = R.drawable.and
+    }
+
     override fun onCreate() {
         super.onCreate()
-        spriteId = R.drawable.and
+
     }
 
     //And is on if all inputs are on
