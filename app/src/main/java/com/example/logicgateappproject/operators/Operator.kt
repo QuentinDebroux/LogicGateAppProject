@@ -14,6 +14,14 @@ abstract class Operator(var posX: Float, var posY: Float, val context: Context) 
     protected var spriteId: Int = R.drawable.and
 
     var state : Int = 0
+    //create basic setter and getter for state variable. Use kotlin syntax and verify that state is either 0 or 1 before setting it.
+    get() = field
+    set(value) {
+        if (value == 0 || value == 1) {
+            field = value
+        }
+    }
+
 
     init {
         size = 0f
