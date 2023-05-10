@@ -27,9 +27,11 @@ abstract class Switch(inPosX: Float, inPosY: Float, context: Context): Operator(
     abstract fun switchState()
 
     override fun compute() {
-        /*Switches state
-        And send a message to connected operators to compute their state*/
+        switchState()
+    }
 
+    override fun callCompute() {
+        //Sends a message to connected operators to compute their state
         for (gate in outputs) {
             gate.compute()
         }
