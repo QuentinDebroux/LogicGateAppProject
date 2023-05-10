@@ -20,7 +20,6 @@ abstract class Light(inPosX: Float, inPosY: Float, context: Context,val MAXINPUT
         the current logic gate to the outputs of
         the input logic gate*/
 
-
         if ((input !in inputs) && (inputs.size < MAXINPUTS)) {
             when(input) {
                 is LogicGate -> {
@@ -50,16 +49,10 @@ abstract class Light(inPosX: Float, inPosY: Float, context: Context,val MAXINPUT
         }
     }
 
-    override fun compute() {
-        /*computes the state of the current logic gate
-        depending on which logic gate it is
-        And send a message to connected operators to compute their state*/
-
+    override fun callCompute() {
+        //Sends a message to connected operators to compute their state
         for (gate in outputs) {
             gate.compute()
         }
-
-
     }
-
 }
