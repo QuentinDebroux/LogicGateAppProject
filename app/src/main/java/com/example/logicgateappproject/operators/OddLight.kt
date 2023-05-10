@@ -24,7 +24,5 @@ class OddLight(inPosX: Float, inPosY: Float, context: Context, max : Int = 5): L
             0 -> { state = 0 }
             1 -> { state = 1 }
         }
-
-        super.compute()
     }
 }
