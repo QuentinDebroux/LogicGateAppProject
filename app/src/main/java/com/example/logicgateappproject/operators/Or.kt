@@ -21,7 +21,5 @@ class Or(inPosX: Float, inPosY: Float, context: Context): LogicGate(inPosX, inPo
             1 -> { state = inputs[0].state }
             2 -> { if (inputs[0].state+inputs[1].state>0) { state = 1 } else { state = 0 }}
         }
-
-        super.compute()
     }
 }
