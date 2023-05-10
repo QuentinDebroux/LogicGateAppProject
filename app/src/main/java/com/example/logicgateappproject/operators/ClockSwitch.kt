@@ -42,8 +42,4 @@ class ClockSwitch(inPosX: Float, inPosY: Float, context: Context, private val DE
             spriteId = if (state == 0) R.drawable.clock_switch_off else R.drawable.clock_switch_on  //Change the sprite of the switch.
         }
     }
-
-    override fun compute() {
-        println("nothing")
-    }
 }
