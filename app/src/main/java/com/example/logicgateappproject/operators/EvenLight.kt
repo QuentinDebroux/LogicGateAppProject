@@ -24,7 +24,5 @@ class EvenLight(inPosX: Float, inPosY: Float, context: Context, max : Int = 5): 
             0 -> { state = 1 }
             1 -> { state = 0 }
         }
-
-        super.compute()
     }
 }
