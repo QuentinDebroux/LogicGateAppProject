@@ -25,7 +25,5 @@ class MoreThanLight(inPosX: Float, inPosY: Float, context: Context, max : Int = 
         else {state = 0}
 
         spriteId = if (state == 0) R.drawable.lit_off_light_bulb_morethan else R.drawable.lit_on_light_bulb_morethan    //Set the sprite of the object.
-
-        super.compute()
     }
 }
