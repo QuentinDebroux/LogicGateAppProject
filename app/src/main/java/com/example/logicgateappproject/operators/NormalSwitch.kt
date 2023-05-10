@@ -17,7 +17,5 @@ class NormalSwitch(inPosX: Float, inPosY: Float, context: Context): Switch(inPos
 
         state = if (state == 1) 0 else 1    //Switch the state of the object.
         spriteId = if (state == 0) R.drawable.normal_switch_off else R.drawable.normal_switch_on    //Set the sprite of the object.
-
-        super.compute()
     }
 }
