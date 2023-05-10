@@ -19,7 +19,5 @@ class Not(inPosX: Float, inPosY: Float, context: Context): LogicGate(inPosX, inP
             0 -> { state = 0 }
             1 -> { if (inputs[0].state==0) { state = 1 } else { state = 0} }
         }
-
-        super.compute()
     }
 }
