@@ -6,6 +6,7 @@ import android.graphics.RectF
 import android.view.MotionEvent
 import androidx.core.content.ContextCompat
 import com.example.logicgateappproject.R
+import kotlin.properties.Delegates
 
 abstract class Operator(var posX: Float, var posY: Float, val context: Context) {
 
@@ -13,14 +14,10 @@ abstract class Operator(var posX: Float, var posY: Float, val context: Context) 
     private var hitbox: RectF
     protected var spriteId: Int = R.drawable.and
 
-    var state : Int = 0
-    get() = field
-    set(value) {
-        if (value == 0 || value == 1) { //The state can only be 0 or 1.
-            field = value
-        }
+    var state: Int by Delegates.observable(0) {
+            prop, old, new -> callCompute()
+        //Calls compute when the state changes
     }
-
 
     init {
         size = 0f
@@ -52,6 +49,8 @@ abstract class Operator(var posX: Float, var posY: Float, val context: Context) 
     }
 
     abstract fun compute()
+
+    abstract fun callCompute()
 
     fun delete() {}
 }
