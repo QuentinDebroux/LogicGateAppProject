@@ -20,7 +20,5 @@ class Xor(inPosX: Float, inPosY: Float, context: Context): LogicGate(inPosX, inP
             1 -> { state = inputs[0].state }
             2 -> { state = (inputs[0].state+inputs[1].state)%2 }
         }
-
-        super.compute()
     }
 }
