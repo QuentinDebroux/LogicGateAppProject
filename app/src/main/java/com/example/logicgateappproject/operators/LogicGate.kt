@@ -54,14 +54,10 @@ abstract class LogicGate(inPosX: Float, inPosY: Float, context: Context): Operat
         }
     }
 
-    override fun compute() {
-        /*computes the state of the current logic gate
-        depending on which logic gate it is
-        And send a message to connected operators to compute their state*/
-
+    override fun callCompute() {
+        //Sends a message to connected operators to compute their state
         for (gate in outputs) {
             gate.compute()
         }
     }
-
 }
