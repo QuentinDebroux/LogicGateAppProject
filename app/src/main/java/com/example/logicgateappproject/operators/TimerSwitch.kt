@@ -29,11 +29,8 @@ class TimerSwitch(inPosX: Float, inPosY: Float, context: Context, private val DU
             spriteId = R.drawable.timer_switch_on  //Set the sprite of the object.
             handler.postDelayed({   //The Runnable will be executed after the specified amount of time.
                 state = 0
-                super.compute()
                 spriteId = R.drawable.timer_switch_off //Set the sprite of the object.
             }, DURATION)    //DURATION is the amount of time in milliseconds.
         }
-
-        super.compute()
     }
 }
